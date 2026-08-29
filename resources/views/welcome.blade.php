@@ -33,17 +33,17 @@
                 </div>
             </div>
             
-            <div class="relative hidden lg:block animate-fade-in" style="animation-delay: 0.2s">
+            <div class="relative block mt-8 lg:mt-0 max-w-xs sm:max-w-md mx-auto lg:max-w-none px-2 sm:px-0 animate-fade-in" style="animation-delay: 0.2s">
                 <!-- Neobrutalist Image Container -->
-                <div class="relative z-10 bg-white p-4 border-3 border-dark-950 shadow-brutal-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streetwear Fashion" class="w-full h-auto border-2 border-dark-950 filter contrast-125 saturate-150">
-                    <div class="absolute -bottom-6 -left-6 bg-primary-400 border-3 border-dark-950 shadow-brutal px-6 py-3 font-display font-bold text-2xl uppercase transform -rotate-6">
+                <div class="relative z-10 bg-white p-3 sm:p-4 border-2 sm:border-3 border-dark-950 shadow-brutal sm:shadow-brutal-lg transform rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streetwear Fashion" class="w-full h-56 sm:h-72 lg:h-auto object-cover border-2 border-dark-950 filter contrast-125 saturate-150">
+                    <div class="absolute -bottom-4 -left-3 sm:-bottom-6 sm:-left-6 bg-primary-400 border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal px-3 sm:px-6 py-1.5 sm:py-3 font-display font-bold text-sm sm:text-2xl uppercase transform -rotate-6">
                         Est. 2024
                     </div>
                 </div>
                 <!-- Abstract decorations -->
-                <div class="absolute -top-10 -right-10 w-32 h-32 bg-accent rounded-full border-3 border-dark-950 -z-10 animate-pulse-slow"></div>
-                <div class="absolute -bottom-10 -right-4 w-24 h-24 bg-blue-500 rounded-none border-3 border-dark-950 -z-10 transform rotate-45"></div>
+                <div class="absolute -top-4 -right-4 sm:-top-10 sm:-right-10 w-16 h-16 sm:w-32 sm:h-32 bg-accent rounded-full border-2 sm:border-3 border-dark-950 -z-10 animate-pulse-slow"></div>
+                <div class="absolute -bottom-4 -right-2 sm:-bottom-10 sm:-right-4 w-12 h-12 sm:w-24 sm:h-24 bg-blue-500 rounded-none border-2 sm:border-3 border-dark-950 -z-10 transform rotate-45"></div>
             </div>
         </div>
     </div>
