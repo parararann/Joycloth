@@ -9,11 +9,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
-<body class="bg-white" x-data>
+<body class="bg-white overflow-x-hidden" x-data>
 
     {{-- ========== NAVBAR ========== --}}
     <nav id="navbar" class="navbar fixed top-0 inset-x-0 z-50 transition-all duration-300" x-data="{ mobileOpen: false }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
 
                 {{-- Logo --}}
@@ -92,7 +92,7 @@
                     @endauth
 
                     {{-- Hamburger Button (Mobile) --}}
-                    <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 text-dark-950 hover:bg-primary-300 border-2 border-dark-950 transition-all" aria-label="Toggle Menu">
+                    <button @click="mobileOpen = !mobileOpen" class="md:hidden flex-shrink-0 w-10 h-10 flex items-center justify-center text-dark-950 bg-primary-400 hover:bg-primary-500 border-2 border-dark-950 transition-all" aria-label="Toggle Menu">
                         <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
                         <svg x-show="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
