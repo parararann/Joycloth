@@ -11,6 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->trustProxies(at: '*');
         $middleware->prependToGroup('web', \App\Http\Middleware\IsolateAdminSession::class);
         $middleware->appendToGroup('web', \App\Http\Middleware\UpdateLastSeenAt::class);
         $middleware->alias([
