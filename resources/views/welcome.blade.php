@@ -12,9 +12,9 @@
     </div>
     
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 mt-8 sm:mt-12 lg:mt-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             
-            {{-- Top on Mobile / Left on Desktop: Text & Actions --}}
+            {{-- 1. Text & Heading --}}
             <div class="max-w-2xl animate-slide-up">
                 <div class="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-300 border-2 border-dark-950 shadow-brutal-sm font-bold uppercase tracking-widest text-xs sm:text-sm mb-4 sm:mb-6 transform -rotate-2">
                     🔥 New Drop Available
@@ -22,21 +22,23 @@
                 <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold text-dark-950 leading-[0.92] uppercase tracking-tighter mb-4 sm:mb-6">
                     WEAR<br>YOUR<br><span class="text-accent underline decoration-4 sm:decoration-8 underline-offset-4">VIBE</span>
                 </h1>
-                <p class="text-base sm:text-xl text-dark-800 font-medium mb-6 sm:mb-8 max-w-xl">
+                <p class="text-base sm:text-xl text-dark-800 font-medium mb-4 sm:mb-8 max-w-xl">
                     Custom apparel and streetwear vendor for those who dare to stand out. Let's make something sick.
                 </p>
-                <div class="flex flex-wrap gap-3 sm:gap-4">
-                    <a href="{{ route('products.index') }}" class="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">Explore Catalog</a>
+                
+                {{-- Desktop Buttons (Hidden on Mobile) --}}
+                <div class="hidden lg:flex flex-wrap gap-4">
+                    <a href="{{ route('products.index') }}" class="btn-primary text-base px-8 py-4">Explore Catalog</a>
                     @auth
-                    <a href="{{ route('chat.index') }}" class="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">Custom Order</a>
+                    <a href="{{ route('chat.index') }}" class="btn-secondary text-base px-8 py-4">Custom Order</a>
                     @else
-                    <a href="{{ route('login') }}" class="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">Join Now</a>
+                    <a href="{{ route('login') }}" class="btn-secondary text-base px-8 py-4">Join Now</a>
                     @endauth
                 </div>
             </div>
             
-            {{-- Bottom on Mobile / Right on Desktop: Image Container --}}
-            <div class="relative block max-w-xs sm:max-w-md mx-auto lg:max-w-none w-full animate-fade-in pt-4 sm:pt-0" style="animation-delay: 0.2s">
+            {{-- 2. Gambar Fashion (Center on mobile, Right on desktop) --}}
+            <div class="relative block max-w-xs sm:max-w-md mx-auto lg:max-w-none w-full animate-fade-in my-2 lg:my-0" style="animation-delay: 0.2s">
                 <!-- Neobrutalist Image Container -->
                 <div class="relative z-10 bg-white p-3 sm:p-4 border-2 sm:border-3 border-dark-950 shadow-brutal sm:shadow-brutal-lg transform rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-300">
                     <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streetwear Fashion" class="w-full h-56 sm:h-72 lg:h-auto object-cover border-2 border-dark-950 filter contrast-125 saturate-150">
@@ -48,6 +50,17 @@
                 <div class="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-16 h-16 sm:w-28 sm:h-28 bg-accent rounded-full border-2 sm:border-3 border-dark-950 -z-10 animate-pulse-slow"></div>
                 <div class="absolute -bottom-4 -right-2 sm:-bottom-8 sm:-right-4 w-12 h-12 sm:w-20 sm:h-20 bg-blue-500 rounded-none border-2 sm:border-3 border-dark-950 -z-10 transform rotate-45"></div>
             </div>
+
+            {{-- 3. Mobile Buttons (Shown below Image on mobile, hidden on desktop) --}}
+            <div class="flex lg:hidden flex-wrap justify-center gap-3 w-full mt-4">
+                <a href="{{ route('products.index') }}" class="btn-primary text-sm px-6 py-3.5 flex-1 text-center">Explore Catalog</a>
+                @auth
+                <a href="{{ route('chat.index') }}" class="btn-secondary text-sm px-6 py-3.5 flex-1 text-center">Custom Order</a>
+                @else
+                <a href="{{ route('login') }}" class="btn-secondary text-sm px-6 py-3.5 flex-1 text-center">Join Now</a>
+                @endauth
+            </div>
+
         </div>
     </div>
 </section>
