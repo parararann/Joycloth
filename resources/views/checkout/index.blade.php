@@ -54,12 +54,12 @@
                     @error('shipping_address')<p class="form-error">{{ $message }}</p>@enderror
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                     <div>
                         <label class="form-label">City (JABODETABEK only) <span class="text-red-500">*</span></label>
                         <input type="text" name="city" value="{{ old('city') }}"
                                class="form-input @error('city') border-red-400 @enderror" 
-                               placeholder="Example: South Jakarta / Bekasi" required>
+                               placeholder="South Jakarta / Bekasi" required>
                         @error('city')<p class="form-error">{{ $message }}</p>@enderror
                     </div>
                     <div>
