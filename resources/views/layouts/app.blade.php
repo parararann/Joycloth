@@ -12,12 +12,12 @@
 <body class="bg-white" x-data>
 
     {{-- ========== NAVBAR ========== --}}
-    <nav id="navbar" class="navbar fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav id="navbar" class="navbar fixed top-0 inset-x-0 z-50 transition-all duration-300" x-data="{ mobileOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
 
                 {{-- Logo --}}
-                <a href="{{ route('home') }}" class="flex items-center gap-2">
+                <a href="{{ route('home') }}" class="flex items-center gap-2 flex-shrink-0">
                     <div class="w-9 h-9 bg-primary-500 rounded-xl flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 2L2 7l8 5 8-5-8-5zM2 13l8 5 8-5M2 10l8 5 8-5"/>
@@ -26,7 +26,7 @@
                     <span class="text-dark-950 font-display font-extrabold text-2xl uppercase tracking-tighter">JOY<span class="text-primary-600">CLOTH</span></span>
                 </a>
 
-                {{-- Nav Links (Desktop) --}}
+                {{-- Nav Links (Desktop Only) --}}
                 <div class="hidden md:flex items-center gap-1">
                     <a href="{{ route('home') }}" class="px-4 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold uppercase tracking-wide">Home</a>
                     <a href="{{ route('products.index') }}" class="px-4 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold uppercase tracking-wide">Catalog</a>
@@ -34,8 +34,8 @@
                     <a href="{{ route('about') }}" class="px-4 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold uppercase tracking-wide">About</a>
                 </div>
 
-                {{-- Actions --}}
-                <div class="flex items-center gap-3">
+                {{-- Right Side Actions --}}
+                <div class="flex items-center gap-2">
                     @auth
                         {{-- Cart Icon --}}
                         <a href="{{ route('cart.index') }}" class="relative p-2 text-dark-950 hover:text-primary-600 transition-colors">
@@ -46,18 +46,18 @@
                             @endif
                         </a>
 
-                        {{-- Chat Icon --}}
-                        <a href="{{ route('chat.index') }}" class="p-2 text-dark-950 hover:text-primary-600 transition-colors">
+                        {{-- Chat Icon (Desktop) --}}
+                        <a href="{{ route('chat.index') }}" class="hidden sm:block p-2 text-dark-950 hover:text-primary-600 transition-colors">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                         </a>
 
-                        {{-- User Dropdown --}}
-                        <div class="relative" x-data="{ open: false }">
+                        {{-- User Dropdown (Desktop) --}}
+                        <div class="hidden md:block relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex items-center gap-2 px-3 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold">
                                 <div class="w-7 h-7 bg-white rounded-none border-2 border-dark-950 flex items-center justify-center font-bold text-xs overflow-hidden shadow-brutal-sm">
                                     <img src="{{ auth()->user()->avatar_url }}" alt="" class="w-full h-full object-cover">
                                 </div>
-                                <span class="hidden sm:block font-bold">{{ auth()->user()->name }}</span>
+                                <span class="font-bold max-w-[100px] truncate">{{ auth()->user()->name }}</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                             </button>
                             <div x-show="open" @click.outside="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-dark-800 border border-dark-700 rounded-xl shadow-xl py-2 z-50">
@@ -86,25 +86,87 @@
                             </div>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="px-4 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold uppercase tracking-wide">Login</a>
-                        <a href="{{ route('register') }}" class="btn-primary btn-sm uppercase tracking-wider">Register</a>
+                        {{-- Guest links desktop --}}
+                        <a href="{{ route('login') }}" class="hidden md:block px-4 py-2 text-dark-950 hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all font-bold uppercase tracking-wide">Login</a>
+                        <a href="{{ route('register') }}" class="hidden md:block btn-primary btn-sm uppercase tracking-wider">Register</a>
                     @endauth
 
-                    {{-- Mobile menu button --}}
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-dark-300 hover:text-white transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    {{-- Hamburger Button (Mobile) --}}
+                    <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 text-dark-950 hover:bg-primary-300 border-2 border-dark-950 transition-all" aria-label="Toggle Menu">
+                        <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        <svg x-show="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
                 </div>
             </div>
+        </div>
 
-            {{-- Mobile Menu --}}
-            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-dark-950 mt-2 pt-4">
-                <div class="space-y-1">
-                    <a href="{{ route('home') }}" class="block px-4 py-2.5 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Home</a>
-                    <a href="{{ route('products.index') }}" class="block px-4 py-2.5 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Catalog</a>
-                    <a href="{{ route('designs.index') }}" class="block px-4 py-2.5 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Designs</a>
-                    <a href="{{ route('about') }}" class="block px-4 py-2.5 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">About</a>
-                </div>
+        {{-- ===== MOBILE MENU DROPDOWN ===== --}}
+        <div x-show="mobileOpen"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             @click.outside="mobileOpen = false"
+             class="md:hidden bg-white border-t-3 border-dark-950 shadow-brutal">
+
+            {{-- Nav Links --}}
+            <div class="px-4 pt-3 pb-2 space-y-1">
+                <a href="{{ route('home') }}" @click="mobileOpen = false" class="block px-4 py-3 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Home</a>
+                <a href="{{ route('products.index') }}" @click="mobileOpen = false" class="block px-4 py-3 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Catalog</a>
+                <a href="{{ route('designs.index') }}" @click="mobileOpen = false" class="block px-4 py-3 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">Designs</a>
+                <a href="{{ route('about') }}" @click="mobileOpen = false" class="block px-4 py-3 text-dark-950 font-bold uppercase hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">About</a>
+            </div>
+
+            {{-- Divider --}}
+            <div class="border-t-2 border-dark-200 mx-4"></div>
+
+            {{-- Auth Section --}}
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                @auth
+                    {{-- User Info --}}
+                    <div class="flex items-center gap-3 px-4 py-3 bg-gray-50 border-2 border-dark-200 mb-2">
+                        <div class="w-10 h-10 border-2 border-dark-950 overflow-hidden flex-shrink-0">
+                            <img src="{{ auth()->user()->avatar_url }}" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-dark-950 text-sm">{{ auth()->user()->name }}</p>
+                            <p class="text-xs text-dark-500">{{ auth()->user()->email }}</p>
+                        </div>
+                    </div>
+
+                    <a href="{{ route('chat.index') }}" @click="mobileOpen = false" class="flex items-center gap-3 px-4 py-3 text-dark-950 font-bold hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        Live Chat
+                    </a>
+                    <a href="{{ route('orders.index') }}" @click="mobileOpen = false" class="flex items-center gap-3 px-4 py-3 text-dark-950 font-bold hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                        My Orders
+                    </a>
+                    <a href="{{ route('profile.edit') }}" @click="mobileOpen = false" class="flex items-center gap-3 px-4 py-3 text-dark-950 font-bold hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        My Profile
+                    </a>
+                    @if(auth()->user()->isAdmin())
+                    <a href="{{ route('admin.dashboard') }}" @click="mobileOpen = false" class="flex items-center gap-3 px-4 py-3 text-primary-600 font-bold hover:bg-primary-300 border-2 border-transparent hover:border-dark-950 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                        Admin Panel
+                    </a>
+                    @endif
+                    <div class="border-t-2 border-dark-200 pt-2 mt-2">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-red-600 font-bold hover:bg-red-50 border-2 border-transparent hover:border-red-300 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                @else
+                    <a href="{{ route('login') }}" @click="mobileOpen = false" class="block px-4 py-3 text-center text-dark-950 font-bold uppercase border-2 border-dark-950 hover:bg-primary-300 transition-all">Login</a>
+                    <a href="{{ route('register') }}" @click="mobileOpen = false" class="block px-4 py-3 text-center bg-primary-500 text-white font-bold uppercase border-2 border-dark-950 hover:bg-primary-600 transition-all shadow-brutal">Register</a>
+                @endauth
             </div>
         </div>
     </nav>
