@@ -13,9 +13,10 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
     }
     body {
-        @apply font-sans text-dark-900 bg-[#f4f4f0] antialiased selection:bg-accent selection:text-white;
+        @apply font-sans text-dark-900 bg-[#f4f4f0] antialiased selection:bg-accent selection:text-white overflow-x-hidden;
     }
     h1, h2, h3, h4, h5, h6 {
         @apply font-display font-bold tracking-tight;
@@ -28,52 +29,52 @@
 @layer components {
     /* === BUTTONS === */
     .btn-primary {
-        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-dark-900 font-bold border-3 border-dark-950
-               transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
-               active:shadow-none active:translate-x-[4px] active:translate-y-[4px] focus:outline-none focus:ring-2 focus:ring-dark-900 focus:ring-offset-2;
+        @apply inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-500 text-dark-900 text-sm sm:text-base font-bold border-2 sm:border-3 border-dark-950
+               transition-all duration-200 shadow-brutal-sm sm:shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[3px] active:translate-y-[3px] focus:outline-none;
     }
     .btn-secondary {
-        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-dark-900 font-bold border-3 border-dark-950
-               transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
-               active:shadow-none active:translate-x-[4px] active:translate-y-[4px] focus:outline-none focus:ring-2 focus:ring-dark-900 focus:ring-offset-2;
+        @apply inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-dark-900 text-sm sm:text-base font-bold border-2 sm:border-3 border-dark-950
+               transition-all duration-200 shadow-brutal-sm sm:shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[3px] active:translate-y-[3px] focus:outline-none;
     }
     .btn-outline {
-        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-dark-900 font-bold border-3 border-dark-950
-               hover:bg-accent hover:text-white transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
-               active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+        @apply inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent text-dark-900 text-sm sm:text-base font-bold border-2 sm:border-3 border-dark-950
+               hover:bg-accent hover:text-white transition-all duration-200 shadow-brutal-sm sm:shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[3px] active:translate-y-[3px];
     }
     .btn-danger {
-        @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-500 text-white font-bold border-2 border-dark-950
-               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-sm;
+        @apply inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-red-500 text-white font-bold border-2 border-dark-950
+               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-xs sm:text-sm;
     }
     .btn-success {
-        @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-emerald-400 text-dark-900 font-bold border-2 border-dark-950
-               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-sm;
+        @apply inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-emerald-400 text-dark-900 font-bold border-2 border-dark-950
+               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-xs sm:text-sm;
     }
     .btn-sm {
-        @apply px-4 py-2 text-sm;
+        @apply px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm;
     }
 
     /* === CARDS === */
     .card {
-        @apply bg-white border-3 border-dark-950 shadow-brutal overflow-hidden transition-all duration-200;
+        @apply bg-white border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal overflow-hidden transition-all duration-200;
     }
     .card-flat {
-        @apply bg-white border-3 border-dark-950 shadow-brutal-sm overflow-hidden;
+        @apply bg-white border-2 sm:border-3 border-dark-950 shadow-brutal-sm overflow-hidden;
     }
     .card-dark {
-        @apply bg-dark-900 text-white border-3 border-dark-950 shadow-brutal overflow-hidden;
+        @apply bg-dark-900 text-white border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal overflow-hidden;
     }
 
     /* === FORM CONTROLS === */
     .form-input {
-        @apply w-full px-4 py-3 border-3 border-dark-950 bg-white text-dark-900 font-medium
-               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm
+        @apply w-full max-w-full px-3.5 sm:px-4 py-2.5 sm:py-3 border-2 sm:border-3 border-dark-950 bg-white text-dark-900 font-medium text-sm sm:text-base
+               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm box-border
                transition-all duration-200 placeholder:text-dark-400;
     }
     .form-select {
-        @apply w-full px-4 py-3 border-3 border-dark-950 bg-white text-dark-950 font-bold
-               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm
+        @apply w-full max-w-full px-3.5 sm:px-4 py-2.5 sm:py-3 border-2 sm:border-3 border-dark-950 bg-white text-dark-900 font-bold text-sm sm:text-base
+               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm box-border
                transition-all duration-200 cursor-pointer appearance-none;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
         background-position: right 0.75rem center;
@@ -81,15 +82,15 @@
         background-size: 1.5em 1.5em;
     }
     .form-label {
-        @apply block text-sm font-bold text-dark-900 mb-1.5 uppercase tracking-wide;
+        @apply block text-xs sm:text-sm font-bold text-dark-900 mb-1 sm:mb-1.5 uppercase tracking-wide;
     }
     .form-error {
-        @apply text-sm font-bold text-red-600 mt-1;
+        @apply text-xs sm:text-sm font-bold text-red-600 mt-1;
     }
 
     /* === BADGES === */
     .badge {
-        @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider border-2 border-dark-950 shadow-brutal-sm;
+        @apply inline-flex items-center px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider border-2 border-dark-950 shadow-brutal-sm;
     }
     .badge-warning { @apply bg-amber-400 text-dark-900; }
     .badge-success { @apply bg-primary-400 text-dark-900; }
@@ -100,10 +101,10 @@
 
     /* === SECTION TITLES === */
     .section-title {
-        @apply text-4xl md:text-5xl font-display font-extrabold text-dark-950 uppercase tracking-tighter;
+        @apply text-2xl sm:text-4xl md:text-5xl font-display font-extrabold text-dark-950 uppercase tracking-tighter;
     }
     .section-subtitle {
-        @apply text-dark-600 text-lg md:text-xl mt-2 font-medium;
+        @apply text-dark-600 text-sm sm:text-base md:text-lg mt-1 sm:mt-2 font-medium;
     }
 
     /* === ADMIN SIDEBAR === */
@@ -117,49 +118,49 @@
 
     /* === PRODUCT CARD === */
     .product-card {
-        @apply bg-white border-3 border-dark-950 shadow-brutal transition-all duration-200 hover:shadow-brutal-lg hover:-translate-y-1 cursor-pointer flex flex-col;
+        @apply bg-white border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal transition-all duration-200 hover:shadow-brutal-lg hover:-translate-y-1 cursor-pointer flex flex-col;
     }
     .product-card img {
-        @apply w-full h-56 object-cover border-b-3 border-dark-950;
+        @apply w-full h-44 sm:h-56 object-cover border-b-2 sm:border-b-3 border-dark-950;
     }
 
     /* === STAT CARD (Admin) === */
     .stat-card {
-        @apply card-flat p-6 flex items-center gap-4 bg-white;
+        @apply card-flat p-4 sm:p-6 flex items-center gap-3 sm:gap-4 bg-white;
     }
     .stat-icon {
-        @apply w-14 h-14 border-2 border-dark-950 shadow-brutal-sm flex items-center justify-center text-2xl flex-shrink-0 bg-primary-200;
+        @apply w-11 h-11 sm:w-14 sm:h-14 border-2 border-dark-950 shadow-brutal-sm flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 bg-primary-200;
     }
 
     /* === TABLE === */
     .data-table {
-        @apply w-full text-sm text-left border-collapse;
+        @apply w-full text-xs sm:text-sm text-left border-collapse;
     }
     .data-table thead tr {
-        @apply bg-primary-300 border-b-3 border-dark-950;
+        @apply bg-primary-300 border-b-2 sm:border-b-3 border-dark-950;
     }
     .data-table thead th {
-        @apply px-4 py-3 font-bold text-dark-950 text-xs uppercase tracking-widest border-r-2 border-dark-950 last:border-r-0;
+        @apply px-3 sm:px-4 py-2.5 sm:py-3 font-bold text-dark-950 text-[10px] sm:text-xs uppercase tracking-widest border-r-2 border-dark-950 last:border-r-0;
     }
     .data-table tbody tr {
         @apply border-b-2 border-dark-950 hover:bg-primary-50 transition-colors duration-150;
     }
     .data-table tbody td {
-        @apply px-4 py-3 text-dark-800 font-medium border-r-2 border-dark-950 last:border-r-0;
+        @apply px-3 sm:px-4 py-2.5 sm:py-3 text-dark-800 font-medium border-r-2 border-dark-950 last:border-r-0;
     }
 
     /* === ALERTS === */
     .alert-success {
-        @apply flex items-center gap-3 p-4 bg-primary-300 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+        @apply flex items-center gap-3 p-3.5 sm:p-4 bg-primary-300 border-2 sm:border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold text-xs sm:text-sm;
     }
     .alert-danger {
-        @apply flex items-center gap-3 p-4 bg-accent border-3 border-dark-950 shadow-brutal-sm text-white font-bold;
+        @apply flex items-center gap-3 p-3.5 sm:p-4 bg-accent border-2 sm:border-3 border-dark-950 shadow-brutal-sm text-white font-bold text-xs sm:text-sm;
     }
     .alert-warning {
-        @apply flex items-center gap-3 p-4 bg-amber-400 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+        @apply flex items-center gap-3 p-3.5 sm:p-4 bg-amber-400 border-2 sm:border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold text-xs sm:text-sm;
     }
     .alert-info {
-        @apply flex items-center gap-3 p-4 bg-blue-300 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+        @apply flex items-center gap-3 p-3.5 sm:p-4 bg-blue-300 border-2 sm:border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold text-xs sm:text-sm;
     }
 }
 

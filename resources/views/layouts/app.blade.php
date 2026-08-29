@@ -197,9 +197,10 @@
     </main>
 
     {{-- ========== FOOTER ========== --}}
-    <footer class="bg-dark-900 text-dark-300 mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    {{-- ========== FOOTER ========== --}}
+    <footer class="bg-dark-900 text-dark-300 mt-12 sm:mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
 
                 {{-- Brand --}}
                 <div class="lg:col-span-2">
@@ -207,21 +208,21 @@
                         <div class="w-9 h-9 bg-primary-500 rounded-xl flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2L2 7l8 5 8-5-8-5z"/></svg>
                         </div>
-                        <span class="text-white font-display font-extrabold text-3xl uppercase tracking-tighter">JOY<span class="text-primary-500">CLOTH</span></span>
+                        <span class="text-white font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tighter">JOY<span class="text-primary-500">CLOTH</span></span>
                     </div>
-                    <p class="text-dark-400 leading-relaxed mb-6 max-w-sm">
+                    <p class="text-dark-400 leading-relaxed mb-6 max-w-sm text-xs sm:text-sm">
                         High-quality custom screen printing and convection services. We provide custom orders for t-shirts, jackets, sweaters, jerseys, and other custom apparel.
                     </p>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Ruko Marakas Square CC7/11, Taman Wisata No.11, Bahagia, Babelan, Bekasi Regency, West Java 17610</span></div>
-                        <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>muhhfar2501@gmail.com</span></div>
+                    <div class="space-y-2 text-xs sm:text-sm">
+                        <div class="flex items-start gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Ruko Marakas Square CC7/11, Taman Wisata No.11, Bahagia, Babelan, Bekasi Regency, West Java 17610</span></div>
+                        <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>muhhfar2501@gmail.com</span></div>
                     </div>
                 </div>
 
                 {{-- Links --}}
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Menu</h4>
-                    <ul class="space-y-2 text-sm">
+                    <h4 class="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Menu</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
                         <li><a href="{{ route('home') }}" class="hover:text-primary-400 transition-colors">Home</a></li>
                         <li><a href="{{ route('products.index') }}" class="hover:text-primary-400 transition-colors">Product Catalog</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-primary-400 transition-colors">About Us</a></li>
@@ -234,50 +235,43 @@
 
                 {{-- Rekening Bank --}}
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Payment</h4>
-                    <div class="bg-dark-800 rounded-xl p-4 text-sm space-y-2">
-                        <p class="text-dark-400 text-xs uppercase tracking-wider font-semibold mb-3">Official Account</p>
+                    <h4 class="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Payment</h4>
+                    <div class="bg-dark-800 rounded-xl p-4 text-xs sm:text-sm space-y-2">
+                        <p class="text-dark-400 text-[10px] sm:text-xs uppercase tracking-wider font-semibold mb-2">Official Account</p>
                         <div>
                             <p class="text-white font-semibold">Bank BCA</p>
-                            <p class="text-primary-400 font-mono text-lg">6631361118</p>
-                            <p class="text-dark-400">Account Holder: Muhammad Farhan</p>
+                            <p class="text-primary-400 font-mono text-base sm:text-lg">6631361118</p>
+                            <p class="text-dark-400 text-xs">Account Holder: Muhammad Farhan</p>
                         </div>
                     </div>
-                    <p class="text-xs text-dark-500 mt-3">Payment via bank transfer. Upload payment proof in the order page.</p>
+                    <p class="text-[11px] text-dark-500 mt-2">Payment via bank transfer. Upload payment proof in the order page.</p>
                 </div>
             </div>
 
-            <div class="border-t border-dark-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-dark-600 text-sm font-medium">&copy; {{ date('Y') }} Joycloth. All rights reserved.</p>
+            <div class="border-t border-dark-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <p class="text-dark-600 text-xs sm:text-sm font-medium">&copy; {{ date('Y') }} Joycloth. All rights reserved.</p>
                 <p class="text-dark-600 text-xs">Made with ❤️ for Indonesian SMEs</p>
             </div>
         </div>
     </footer>
 
-    {{-- Mobile menu script --}}
-    <script>
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-            document.getElementById('mobile-menu')?.classList.toggle('hidden');
-        });
-    </script>
-
     {{-- ========== FLOATING CHAT SHORTCUT ========== --}}
     @auth
     @if(!request()->routeIs('chat.index'))
     <a href="{{ route('chat.index') }}" 
-       class="fixed bottom-6 right-6 z-[60] group flex items-center gap-3 animate-slide-up">
+       class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] group flex items-center gap-2 sm:gap-3 animate-slide-up">
         {{-- Notification Tooltip --}}
         <div class="bg-dark-950 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 border-2 border-dark-950 shadow-brutal-sm opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 hidden sm:block">
             Chat with us
         </div>
         {{-- Floating Bubble --}}
-        <div class="w-14 h-14 bg-primary-400 border-3 border-dark-950 shadow-brutal flex items-center justify-center group-hover:-translate-y-1 group-hover:shadow-brutal-lg transition-all active:translate-y-0 active:shadow-brutal">
-            <svg class="w-7 h-7 text-dark-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-11 h-11 sm:w-14 sm:h-14 bg-primary-400 border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal flex items-center justify-center group-hover:-translate-y-1 group-hover:shadow-brutal-lg transition-all active:translate-y-0 active:shadow-brutal">
+            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-dark-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
             </svg>
             @php $unreadCount = \App\Models\ChatMessage::forUser(auth()->id())->where('sender_type', 'admin')->unread()->count(); @endphp
             @if($unreadCount > 0)
-            <div class="absolute -top-2 -left-2 w-6 h-6 bg-[#FF0000] border-2 border-dark-950 text-dark-950 text-[10px] font-black flex items-center justify-center animate-bounce shadow-brutal-sm">
+            <div class="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 w-5 h-5 sm:w-6 sm:h-6 bg-[#FF0000] border-2 border-dark-950 text-white text-[9px] sm:text-[10px] font-black flex items-center justify-center animate-bounce shadow-brutal-sm rounded-full">
                 {{ $unreadCount }}
             </div>
             @endif
