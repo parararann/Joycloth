@@ -1,0 +1,227 @@
+/* ===================================
+   GOOGLE FONTS IMPORT (NEOBRUTALISM)
+=================================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   GLOBAL BASE STYLES
+=================================== */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply font-sans text-dark-900 bg-[#f4f4f0] antialiased selection:bg-accent selection:text-white;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-display font-bold tracking-tight;
+    }
+}
+
+/* ===================================
+   REUSABLE COMPONENT STYLES
+=================================== */
+@layer components {
+    /* === BUTTONS === */
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 text-dark-900 font-bold border-3 border-dark-950
+               transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[4px] active:translate-y-[4px] focus:outline-none focus:ring-2 focus:ring-dark-900 focus:ring-offset-2;
+    }
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-dark-900 font-bold border-3 border-dark-950
+               transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[4px] active:translate-y-[4px] focus:outline-none focus:ring-2 focus:ring-dark-900 focus:ring-offset-2;
+    }
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-dark-900 font-bold border-3 border-dark-950
+               hover:bg-accent hover:text-white transition-all duration-200 shadow-brutal hover:shadow-brutal-hover hover:translate-x-[2px] hover:translate-y-[2px]
+               active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+    }
+    .btn-danger {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-500 text-white font-bold border-2 border-dark-950
+               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-sm;
+    }
+    .btn-success {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-emerald-400 text-dark-900 font-bold border-2 border-dark-950
+               transition-all duration-200 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none text-sm;
+    }
+    .btn-sm {
+        @apply px-4 py-2 text-sm;
+    }
+
+    /* === CARDS === */
+    .card {
+        @apply bg-white border-3 border-dark-950 shadow-brutal overflow-hidden transition-all duration-200;
+    }
+    .card-flat {
+        @apply bg-white border-3 border-dark-950 shadow-brutal-sm overflow-hidden;
+    }
+    .card-dark {
+        @apply bg-dark-900 text-white border-3 border-dark-950 shadow-brutal overflow-hidden;
+    }
+
+    /* === FORM CONTROLS === */
+    .form-input {
+        @apply w-full px-4 py-3 border-3 border-dark-950 bg-white text-dark-900 font-medium
+               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm
+               transition-all duration-200 placeholder:text-dark-400;
+    }
+    .form-select {
+        @apply w-full px-4 py-3 border-3 border-dark-950 bg-white text-dark-950 font-bold
+               focus:outline-none focus:ring-0 focus:border-accent shadow-brutal-sm
+               transition-all duration-200 cursor-pointer appearance-none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+    }
+    .form-label {
+        @apply block text-sm font-bold text-dark-900 mb-1.5 uppercase tracking-wide;
+    }
+    .form-error {
+        @apply text-sm font-bold text-red-600 mt-1;
+    }
+
+    /* === BADGES === */
+    .badge {
+        @apply inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider border-2 border-dark-950 shadow-brutal-sm;
+    }
+    .badge-warning { @apply bg-amber-400 text-dark-900; }
+    .badge-success { @apply bg-primary-400 text-dark-900; }
+    .badge-danger  { @apply bg-accent text-white; }
+    .badge-info    { @apply bg-blue-400 text-dark-900; }
+    .badge-primary { @apply bg-primary-500 text-dark-900; }
+    .badge-dark    { @apply bg-dark-900 text-white; }
+
+    /* === SECTION TITLES === */
+    .section-title {
+        @apply text-4xl md:text-5xl font-display font-extrabold text-dark-950 uppercase tracking-tighter;
+    }
+    .section-subtitle {
+        @apply text-dark-600 text-lg md:text-xl mt-2 font-medium;
+    }
+
+    /* === ADMIN SIDEBAR === */
+    .sidebar-link {
+        @apply flex items-center gap-3 px-4 py-3 text-dark-900 border-2 border-transparent hover:border-dark-950 hover:bg-primary-200 hover:shadow-brutal-sm
+               transition-all duration-200 font-bold text-sm uppercase tracking-wide;
+    }
+    .sidebar-link.active {
+        @apply bg-primary-400 text-dark-950 border-dark-950 shadow-brutal-sm;
+    }
+
+    /* === PRODUCT CARD === */
+    .product-card {
+        @apply bg-white border-3 border-dark-950 shadow-brutal transition-all duration-200 hover:shadow-brutal-lg hover:-translate-y-1 cursor-pointer flex flex-col;
+    }
+    .product-card img {
+        @apply w-full h-56 object-cover border-b-3 border-dark-950;
+    }
+
+    /* === STAT CARD (Admin) === */
+    .stat-card {
+        @apply card-flat p-6 flex items-center gap-4 bg-white;
+    }
+    .stat-icon {
+        @apply w-14 h-14 border-2 border-dark-950 shadow-brutal-sm flex items-center justify-center text-2xl flex-shrink-0 bg-primary-200;
+    }
+
+    /* === TABLE === */
+    .data-table {
+        @apply w-full text-sm text-left border-collapse;
+    }
+    .data-table thead tr {
+        @apply bg-primary-300 border-b-3 border-dark-950;
+    }
+    .data-table thead th {
+        @apply px-4 py-3 font-bold text-dark-950 text-xs uppercase tracking-widest border-r-2 border-dark-950 last:border-r-0;
+    }
+    .data-table tbody tr {
+        @apply border-b-2 border-dark-950 hover:bg-primary-50 transition-colors duration-150;
+    }
+    .data-table tbody td {
+        @apply px-4 py-3 text-dark-800 font-medium border-r-2 border-dark-950 last:border-r-0;
+    }
+
+    /* === ALERTS === */
+    .alert-success {
+        @apply flex items-center gap-3 p-4 bg-primary-300 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+    }
+    .alert-danger {
+        @apply flex items-center gap-3 p-4 bg-accent border-3 border-dark-950 shadow-brutal-sm text-white font-bold;
+    }
+    .alert-warning {
+        @apply flex items-center gap-3 p-4 bg-amber-400 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+    }
+    .alert-info {
+        @apply flex items-center gap-3 p-4 bg-blue-300 border-3 border-dark-950 shadow-brutal-sm text-dark-950 font-bold;
+    }
+}
+
+/* ===================================
+   HERO SECTION GRADIENT
+=================================== */
+.hero-gradient {
+    background: #f4f4f0;
+    background-image: radial-gradient(#000000 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* ===================================
+   NAVBAR
+=================================== */
+.navbar {
+    @apply bg-white border-b-3 border-dark-950;
+}
+
+/* ===================================
+   CHAT WIDGET
+=================================== */
+.chat-widget {
+    @apply shadow-brutal-lg border-3 border-dark-950 rounded-none;
+}
+.chat-bubble-user {
+    @apply bg-primary-400 text-dark-950 border-2 border-dark-950 font-bold px-4 py-2.5 text-sm max-w-xs ml-auto shadow-brutal-sm;
+}
+.chat-bubble-admin {
+    @apply bg-white text-dark-950 border-2 border-dark-950 font-bold px-4 py-2.5 text-sm max-w-xs shadow-brutal-sm;
+}
+
+/* ===================================
+   SCROLLBAR CUSTOM
+=================================== */
+::-webkit-scrollbar { width: 12px; border-left: 2px solid #000; }
+::-webkit-scrollbar-track { background: #f4f4f0; }
+::-webkit-scrollbar-thumb { background: #69ba10; border: 2px solid #000; }
+::-webkit-scrollbar-thumb:hover { background: #ff2e93; }
+
+/* ===================================
+   ANIMATIONS
+=================================== */
+.animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+.animate-slide-up { animation: slideUp 0.4s ease-out; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Marquee Animation for Streetwear Vibe */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee 15s linear infinite;
+    display: inline-flex;
+    white-space: nowrap;
+}
