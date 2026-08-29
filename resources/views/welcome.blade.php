@@ -3,47 +3,50 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="hero-gradient relative border-b-2 sm:border-b-3 border-dark-950 overflow-hidden min-h-[70vh] sm:min-h-[85vh] flex items-center py-12 sm:py-16">
+<section class="hero-gradient relative border-b-2 sm:border-b-3 border-dark-950 overflow-hidden min-h-[60vh] sm:min-h-[80vh] flex items-center py-8 sm:py-16">
     <!-- Decorative Marquee -->
-    <div class="absolute top-0 left-[-5%] w-[110%] bg-accent border-b-2 sm:border-b-3 border-dark-950 py-1.5 sm:py-2 z-10 overflow-hidden transform -rotate-2 translate-y-4 sm:translate-y-8">
-        <div class="animate-marquee font-display font-bold text-dark-950 text-sm sm:text-lg md:text-xl tracking-widest uppercase">
+    <div class="absolute top-0 left-[-5%] w-[110%] bg-accent border-b-2 sm:border-b-3 border-dark-950 py-1 sm:py-2 z-10 overflow-hidden transform -rotate-2 translate-y-3 sm:translate-y-8">
+        <div class="animate-marquee font-display font-bold text-dark-950 text-xs sm:text-lg md:text-xl tracking-widest uppercase">
             &nbsp;JOYCLOTH STUDIO • STREETWEAR & CUSTOM APPAREL • PREMIUM QUALITY • BOLD DESIGN • JOYCLOTH STUDIO • STREETWEAR & CUSTOM APPAREL • PREMIUM QUALITY • BOLD DESIGN •
         </div>
     </div>
     
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 mt-10 sm:mt-14">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="max-w-2xl animate-slide-up">
-                <div class="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-300 border-2 border-dark-950 shadow-brutal-sm font-bold uppercase tracking-widest text-xs sm:text-sm mb-4 sm:mb-6 transform -rotate-2">
-                    🔥 New Drop Available
+    <div class="container mx-auto px-3 sm:px-6 lg:px-8 relative z-20 mt-8 sm:mt-14">
+        <div class="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-12 items-center">
+            
+            {{-- Left Side: Text & Actions --}}
+            <div class="animate-slide-up flex flex-col justify-center">
+                <div class="inline-block self-start px-2 sm:px-4 py-0.5 sm:py-1.5 bg-primary-300 border-2 border-dark-950 shadow-brutal-sm font-bold uppercase tracking-widest text-[9px] sm:text-xs md:text-sm mb-2 sm:mb-5 transform -rotate-2">
+                    🔥 New Drop
                 </div>
-                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold text-dark-950 leading-[0.95] uppercase tracking-tighter mb-4 sm:mb-6">
-                    WEAR<br>YOUR<br><span class="text-accent underline decoration-4 sm:decoration-8 underline-offset-4">VIBE</span>
+                <h1 class="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-dark-950 leading-[0.92] uppercase tracking-tighter mb-2 sm:mb-5">
+                    WEAR<br>YOUR<br><span class="text-accent underline decoration-2 sm:decoration-6 md:decoration-8 underline-offset-2 sm:underline-offset-4">VIBE</span>
                 </h1>
-                <p class="text-sm sm:text-lg md:text-xl text-dark-800 font-medium mb-6 sm:mb-8 max-w-xl">
+                <p class="text-[10px] sm:text-base md:text-xl text-dark-800 font-medium mb-3 sm:mb-8 line-clamp-2 sm:line-clamp-none">
                     Custom apparel and streetwear vendor for those who dare to stand out. Let's make something sick.
                 </p>
-                <div class="flex flex-wrap gap-3 sm:gap-4">
-                    <a href="{{ route('products.index') }}" class="btn-primary text-sm sm:text-base px-5 sm:px-8 py-3 sm:py-4">Explore Catalog</a>
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                    <a href="{{ route('products.index') }}" class="btn-primary text-xs sm:text-base px-3 sm:px-6 py-2 sm:py-3.5 text-center">Explore Catalog</a>
                     @auth
-                    <a href="{{ route('chat.index') }}" class="btn-secondary text-sm sm:text-base px-5 sm:px-8 py-3 sm:py-4">Custom Order</a>
+                    <a href="{{ route('chat.index') }}" class="btn-secondary text-xs sm:text-base px-3 sm:px-6 py-2 sm:py-3.5 text-center">Custom Order</a>
                     @else
-                    <a href="{{ route('login') }}" class="btn-secondary text-sm sm:text-base px-5 sm:px-8 py-3 sm:py-4">Join Now</a>
+                    <a href="{{ route('login') }}" class="btn-secondary text-xs sm:text-base px-3 sm:px-6 py-2 sm:py-3.5 text-center">Join Now</a>
                     @endauth
                 </div>
             </div>
             
-            <div class="relative block mt-8 lg:mt-0 max-w-xs sm:max-w-md mx-auto lg:max-w-none px-2 sm:px-0 animate-fade-in" style="animation-delay: 0.2s">
+            {{-- Right Side: Image Container --}}
+            <div class="relative block animate-fade-in pr-2 sm:pr-0" style="animation-delay: 0.2s">
                 <!-- Neobrutalist Image Container -->
-                <div class="relative z-10 bg-white p-3 sm:p-4 border-2 sm:border-3 border-dark-950 shadow-brutal sm:shadow-brutal-lg transform rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streetwear Fashion" class="w-full h-56 sm:h-72 lg:h-auto object-cover border-2 border-dark-950 filter contrast-125 saturate-150">
-                    <div class="absolute -bottom-4 -left-3 sm:-bottom-6 sm:-left-6 bg-primary-400 border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal px-3 sm:px-6 py-1.5 sm:py-3 font-display font-bold text-sm sm:text-2xl uppercase transform -rotate-6">
+                <div class="relative z-10 bg-white p-1.5 sm:p-3 md:p-4 border-2 sm:border-3 border-dark-950 shadow-brutal-sm sm:shadow-brutal md:shadow-brutal-lg transform rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streetwear Fashion" class="w-full h-36 sm:h-64 md:h-80 lg:h-auto object-cover border-2 border-dark-950 filter contrast-125 saturate-150">
+                    <div class="absolute -bottom-2 sm:-bottom-5 -left-1.5 sm:-left-4 bg-primary-400 border-2 sm:border-3 border-dark-950 shadow-brutal-sm px-2 sm:px-4 py-0.5 sm:py-2 font-display font-bold text-[10px] sm:text-lg md:text-2xl uppercase transform -rotate-6">
                         Est. 2024
                     </div>
                 </div>
                 <!-- Abstract decorations -->
-                <div class="absolute -top-4 -right-4 sm:-top-10 sm:-right-10 w-16 h-16 sm:w-32 sm:h-32 bg-accent rounded-full border-2 sm:border-3 border-dark-950 -z-10 animate-pulse-slow"></div>
-                <div class="absolute -bottom-4 -right-2 sm:-bottom-10 sm:-right-4 w-12 h-12 sm:w-24 sm:h-24 bg-blue-500 rounded-none border-2 sm:border-3 border-dark-950 -z-10 transform rotate-45"></div>
+                <div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 w-10 h-10 sm:w-24 sm:h-24 bg-accent rounded-full border-2 sm:border-3 border-dark-950 -z-10 animate-pulse-slow"></div>
+                <div class="absolute -bottom-3 -right-1 sm:-bottom-8 sm:-right-3 w-8 h-8 sm:w-16 sm:h-16 bg-blue-500 rounded-none border-2 sm:border-3 border-dark-950 -z-10 transform rotate-45"></div>
             </div>
         </div>
     </div>
